@@ -22,14 +22,19 @@ function App() {
       </ul>
     </header>
     <div className="content p-40">
-      <div>
-      <h1 className= "mb-40">Все кроссовки</h1>
-      <div className="search">
-
+      <div className="d-flex align-center mb-40 justify-between">
+      <h1> Все кроссовки </h1>
+      <div className="search-block d-flex">
+      <img img width="22" height="22"src="/img/search.png" alt = "Search"/>
+      <input placeholder="Поиск..."/>
       </div>
     </div>
+
       <div className="d-flex">
       <div className="card">
+      <div className="favorite"> 
+      <img src="/img/heart.svg" alt="Unliked"/>
+      </div>
     <img width="133" height="112" src="/img/sneakers/1.png" alt = "Sneakers"/>
     <h5>Мужские крутые кроссовки сука</h5>
     <div className = "d-flex justify-between align-center">
