@@ -1,6 +1,60 @@
 function App() {
   return (
     <div className="wrapper clear">
+        <div className="overlay">
+          <div className="drawer">
+            <h2 className="mb-30"> Корзина</h2>
+            <div className="items">
+            <ul className="cartTotalBlock">
+              <li>
+                <span>Итого: </span> 
+                <div></div>   
+                <b>21 498руб.</b>      
+              </li>
+
+              <li >  
+                <span>Налог 5%: </span> 
+                <div></div>   
+                <b>1074руб.</b>      
+                 </li>
+            </ul>
+            
+            </div>
+
+            <div className="cartItem d-flex align-center mb-20">
+             
+            <div style={{backgroundImage:'url(/img/sneakers/1.png'}} 
+            className="cartItemImg">
+        
+            </div>
+            
+            <div className="mr-20 flex">
+                <p className="mb-5">Мужские крутые кросы </p>
+                <b> 12 999 руб.</b>
+              </div>
+                <img className="RemoveBtn" src="/img/remove.svg" alt = "Remove"/>
+              </div>
+              
+
+              <div className="cartItem d-flex align-center mb-20">
+             
+             <div style={{backgroundImage:'url(/img/sneakers/1.png'}} 
+             className="cartItemImg">
+         
+             </div>
+             
+             <div className="mr-20 flex">
+                 <p className="mb-5">Мужские крутые кросы </p>
+                 <b> 12 999 руб.</b>
+               </div>
+                 <img className="RemoveBtn" src="/img/remove.svg" alt = "Remove"/>
+               </div>
+               
+
+               </div>
+        </div>
+
+
       <header className="d-flex justify-between align-center p-40">
       <div className="d-flex align-center">
         <img width ={40} height={40} src="/img/logo.png"/>
@@ -36,7 +90,7 @@ function App() {
       <img src="/img/heart.svg" alt="Unliked"/>
       </div>
     <img width="133" height="112" src="/img/sneakers/1.png" alt = "Sneakers"/>
-    <h5>Мужские крутые кроссовки сука</h5>
+    <h5>Мужские крутые кроссовки</h5>
     <div className = "d-flex justify-between align-center">
     <div className = "d-flex flex-column">
       <span> Цена:</span>
@@ -49,7 +103,7 @@ function App() {
     </div>
     <div className="card">
     <img width="133" height="112" src="/img/sneakers/2.png" alt = "Sneakers"/>
-    <h5>Мужские крутые кроссовки сука</h5>
+    <h5>Мужские крутые кроссовки </h5>
     <div className = "d-flex justify-between align-center">
     <div className = "d-flex flex-column">
       <span> Цена:</span>
@@ -62,7 +116,7 @@ function App() {
     </div>
     <div className="card">
     <img width="133" height="112" src="/img/sneakers/3.png" alt = "Sneakers"/>
-    <h5>Мужские крутые кроссовки сука</h5>
+    <h5>Мужские крутые кроссовки </h5>
     <div className = "d-flex justify-between align-center">
     <div className = "d-flex flex-column">
       <span> Цена:</span>
