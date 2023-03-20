@@ -9,7 +9,7 @@ function Drawer({ onClose, onRemove, items = [] }) {
           <div>
             <div className="items">
               {items.map((obj) => (
-                <div className="cartItem d-flex align-center mb-20">
+                <div key={obj.id} className="cartItem d-flex align-center mb-20">
                   <div
                     style={{ backgroundImage: `url(${obj.imageUrl})` }}
                     className="cartItemImg"></div>
@@ -46,10 +46,10 @@ function Drawer({ onClose, onRemove, items = [] }) {
             </div>
           </div>
         ) : (
-          <div class="cartEmpty d-flex align-center justify-center flex-column flex">
-            <img class="mb-20" width="120px" height="120px" src="/img/empty-cart.jpg" alt="Empty" />
+          <div className ="cartEmpty d-flex align-center justify-center flex-column flex">
+            <img className="mb-20" width="120px" height="120px" src="/img/empty-cart.jpg" alt="Empty" />
             <h2>Корзина пустая</h2>
-            <p class="opacity-6">Добавьте хотя бы один товар, чтобы сделать заказ.</p>
+            <p className="opacity-6">Добавьте хотя бы один товар, чтобы сделать заказ.</p>
             <button onClick={onClose} class="greenButton">
               <img src="/img/str.svg" alt="Arrow" />
               Вернуться назад
