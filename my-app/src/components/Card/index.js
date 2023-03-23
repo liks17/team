@@ -2,7 +2,20 @@ import styles from './Card.module.scss';
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 import AppContext from '../../context';
-
+/**
+ * 
+ * @param  id  Номер карточки товара
+ * @param  title  Название товара
+ * @param  imageUrl Ссылка на изображение товара
+ * @param  price Цена товара
+ * @param  onFavorited Метод добавления в избранное
+ * @param  onPlus Метод добавления в корзину
+ * @param  favorited Свойство определяющие добавлен товар в избранное или нет
+ * @param  loading Свойство определяющие процесс загрузки на сервере
+ * 
+ *  
+ * @returns Создает вёрстку для карточки товара
+ */
 function Card({
   id,
   title,
@@ -15,17 +28,35 @@ function Card({
 }) 
 {
   const {isItemAdded} = React.useContext(AppContext);
-
   const [isFavorite, setIsFavorite] = React.useState(favorited);
   const obj = { id, parentId: id, title, imageUrl, price };
-    const onClickFavorite = () => {
-      onFavorite({ id, title, imageUrl, price });
-      setIsFavorite(!isFavorite);
-    };
-
-    const onClickPlus = () => {
-      onPlus(obj);
-    };
+  /**
+ * 
+ * @param  id  Номер карточки товара в корзине
+ * @param parentId Номер карточки товара на сервере
+ * @param  title  Название товара
+ * @param  imageUrl Ссылка на изображение товара
+ * @param  price Цена товара
+ *  
+ * @returns Вызов метода добавления в избранное описанного в App.js
+ */
+  const onClickFavorite = () => {
+    onFavorite({ id, title, imageUrl, price });
+    setIsFavorite(!isFavorite);
+  };
+/**
+ * 
+ * @param  id  Номер карточки товара в корзине
+ * @param parentId Номер карточки товара на сервере
+ * @param  title  Название товара
+ * @param  imageUrl Ссылка на изображение товара
+ * @param  price Цена товара
+ *  
+ * @returns Вызов метода добавления в корзину описанного в App.js
+ */
+  const onClickPlus = () => {
+    onPlus(obj);
+  };
 
     return (
         <div className={styles.card}>
@@ -45,22 +76,26 @@ function Card({
         </ContentLoader>
       ) : (
         <>
-          <div className={styles.favorite} onClick={onClickFavorite}>
-            <img src={isFavorite ? '/img/heartlike.svg' : '/img/heart.svg'} alt="Unliked" />
-          </div>
-          <img width="100%" height={135} src={imageUrl} alt="Sneakers" />
+          {onFavorite && (
+            <div className={styles.favorite} onClick={onClickFavorite}>
+              <img src={isFavorite ? 'img/heartlike.svg' : 'img/heart.svg'} alt="Unliked" />
+            </div>
+          )}
+          <img width="100%" height={135} src={imageUrl} alt="Watch" />
           <h5>{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
               <span>Цена:</span>
               <b>{price} руб.</b>
             </div>
-            <img
-              className={styles.plus}
-              onClick={onClickPlus}
-              src={isItemAdded(id) ? '/img/galka.svg' : '/img/plus.svg'}
-              alt="Plus"
-            />
+            {onPlus && (
+              <img
+                className={styles.plus}
+                onClick={onClickPlus}
+                src={isItemAdded(id) ? '/img/galka.svg' : 'img/plus.svg'}
+                alt="Plus"
+              />
+            )}
           </div>
         </>
       )}

@@ -4,7 +4,6 @@ import axios from 'axios';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
 import AppContext from './context';
-
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
@@ -83,7 +82,7 @@ function App() {
         setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
       } else {
         const { data } = await axios.post(
-          'https://https://6419b1c7f398d7d95d46c191.mockapi.io/favorites',
+          'https://6419b1c7f398d7d95d46c191.mockapi.io/favorites',
           obj,
         );
         setFavorites((prev) => [...prev, data]);
@@ -125,7 +124,7 @@ function App() {
 
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Route path="" exact>
+        <Route path="/" exact>
           <Home
             items={items}
             cartItems={cartItems}
@@ -138,10 +137,13 @@ function App() {
           />
         </Route>
 
-        <Route path="favorites" exact>
+        <Route path="/favorites" exact  >
           <Favorites />
         </Route>
-        
+
+        <Route path="/orders" exact>
+          <Orders />
+        </Route>
       </div>
     </AppContext.Provider>
   );
