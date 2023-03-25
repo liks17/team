@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-
 import Card from '../components/Card';
 import AppContext from '../context';
 
+/**
+ * 
+ * @returns Создает вёрстку страницы с оформленными заказами
+ */
 function Orders() {
   const { onAddToFavorite, onAddToCart } = React.useContext(AppContext);
   const [orders, setOrders] = React.useState([]);

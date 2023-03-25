@@ -8,6 +8,10 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
 
+/**
+ * 
+ * @returns Возвращает вёрстку и функционал приложения
+ */
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
@@ -37,7 +41,11 @@ function App() {
 
     fetchData();
   }, []);
-
+/**
+ * 
+ * @param  obj  Объект карточки товара
+ * Метод для добавления карточки товара в корзину 
+ */
   const onAddToCart = async (obj) => {
     try {
       const findItem = cartItems.find((item) => Number(item.parentId) === Number(obj.id));
@@ -64,7 +72,11 @@ function App() {
       console.error(error);
     }
   };
-
+/**
+ * 
+ * @param  id Номер карточки товара в корзине
+ * Метод для удаления карточки с корзины и сервера
+ */
   const onRemoveItem = (id) => {
     try {
       axios.delete(`https://6412fb2a3b710647375b6ac1.mockapi.io/cart/${id}`);
@@ -74,6 +86,11 @@ function App() {
       console.error(error);
     }
   };
+  /**
+ * 
+ * @param  obj  Объект карточки товара
+ * Метод для добавления карточки товара в Избранное
+ */
 
   const onAddToFavorite = async (obj) => {
     try {
@@ -92,11 +109,20 @@ function App() {
       console.error(error);
     }
   };
-
+/**
+ * 
+ * @param event Ссылка на введенные данные в поисковую строку
+ * Метод для обновления значения в поисковой строке 
+ */
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
   };
 
+  /**
+   * 
+   * @param id Номер карточки в корзине 
+   * @returns Возвращает значение о нахождении товара в корзине
+   */
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };

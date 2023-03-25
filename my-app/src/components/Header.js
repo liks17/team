@@ -13,10 +13,10 @@ function Header(props) {
     <header className="d-flex justify-between align-center p-40">
       <Link to="/">
         <div className="d-flex align-center">
-          <img width={40} height={40} src="/img/l1.png" alt="Logotype" />
+          <img width={40} height={40} src="/img/logol.png" alt="Logotype" />
           <div>
-            <h3 className="text-uppercase">WatchReact</h3>
-            <p className="opacity-5">Интернет магазин самых лучших часов в России</p>
+            <h3 className="text-uppercase">LapTop</h3>
+            <p className="opacity-5">Интернет магазин ноутбуков</p>
           </div>
         </div>
       </Link>

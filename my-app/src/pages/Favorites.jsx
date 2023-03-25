@@ -2,6 +2,10 @@ import Card from '../components/Card';
 import React from 'react';
 import AppContext from '../context';
 
+/**
+ * 
+ * @returns Создаёт вёрстку страницы "Избранное"
+ */
 function Favorites() {
   const { favorites, onAddToFavorite } = React.useContext(AppContext);
   return (

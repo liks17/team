@@ -1,6 +1,13 @@
 import React from 'react';
 import AppContext from '../context';
-
+ /**
+  * 
+  * @param title Название состояния корзины
+  * @param image Ссылка на картинку
+  * @param description Описание состояния корзины
+  *  
+  * @returns Создает вёрстку описания состояния корзины
+  */
 const Info = ({ title, image, description }) => {
   const { setCartOpened } = React.useContext(AppContext);
 
